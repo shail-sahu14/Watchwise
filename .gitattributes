@@ -1,1 +1,2 @@
 *.pkl filter=lfs diff=lfs merge=lfs -text
+base/recommender/similarity.pkl filter=lfs diff=lfs merge=lfs -text
