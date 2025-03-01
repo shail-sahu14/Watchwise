@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>Watchlist</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Font Awesome 5 Brands:wght@400&display=swap" />
+    <script src="https://kit.fontawesome.com/cb792c0850.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="signup-login">
+        <div class="grid-item">
+            <div class="signup-box">
+                <div class="heads">
+                    <div class="heading">
+                        {{name}}
+                    </div>
+                    <div class="anca"><a href="{% url 'home' %}" class="sign" title="back"><i
+                        class="fa-solid fa-right-from-bracket"></i></a></div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" class="inp" name="title" required placeholder="Add Movies">
+                    <input type="submit" class="submit-button" value="Add Movie"> 
+                </form>
+                {% for movie in movis %}
+                    <div class="Todo {% if movie.status %}active{% endif %}">
+                        <div>
+                            <a href="{% url 'status' movie.id %}" title="checkbox">
+                                {% if movie.status %}
+                                    <i class="fa-regular fa-square-check"></i>
+                                {% else %}
+                                    <i class="fa-regular fa-square"></i>
+                                {% endif %}
+                            </a>
+                        </div>
+                        <p>{{movie.title}}</p>
+                        <div>
+                            <a href="{% url 'recommend' movie.id %}" title="Recommend"><i class="fa-solid fa-film"></i></a>
+                            <a href="{% url 'editmovie' movie.id %}" title="Edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="{% url 'deletemovie' movie.id %}" title="Delete"><i class="fa-solid fa-trash-can"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
