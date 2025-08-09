@@ -22,6 +22,10 @@ It leverages machine learning and similarity-based recommendations to suggest ti
 - **Model Storage**: Pickle (similarity matrix) *(ignored in repo to avoid large file size issues)*
 
 ---
+## Demo
+
+![Watchwise Demo](assets/demo.gif)
+
 
 ## 🚀 Installation & Setup
 

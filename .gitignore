@@ -1,2 +1,3 @@
 "base/recommender/similarity.pkl" 
 "base/recommender/movie_df.pkl" 
+db.sqlite3
